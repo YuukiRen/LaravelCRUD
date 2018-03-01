@@ -9,7 +9,7 @@ class CreateController extends Controller
 {
     public function home(){
     	$articles = Article::all();
-    	return view('home', ['articles'=>$articles]);
+    	return view('welcome', ['articles'=>$articles]);
     }
     public function add(Request $request){
     	$this->validate($request,[

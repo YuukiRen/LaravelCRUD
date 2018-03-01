@@ -1,95 +1,49 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@include('inc.header')
+	<div class="container">
+		<div class="row">
+			<legend>Database Application</legend>
+			@if(session('info'))
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				{{session('info')}}
 
-        <title>Laravel</title>
+			</div>
+			@endif
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Title</th>
+			      <th scope="col">Description</th>
+			      <th scope="col">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	@if(count($articles)>0)
+			  		@foreach($articles->all() as $article)
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+			  		
+			    <tr class="table-active">
+			      <th scope="row">{{ $article->id }}</th>
+			      <td>{{ $article->title }}</td>
+			      <td>{{ $article->description }}</td>
+			      <td>
+			      		<a href='{{ url("/read/{$article->id}") }}' class="btn btn-info" >
+			      			<font color="white">Read</font>
+			      		</a>
+			      		<a href='{{ url("/update/{$article->id}") }}' class="btn btn-success">
+			      			<font color="white">Update </font>
+			      		</a>
+			      		<a href='{{ url("/delete/{$article->id}") }}' class="btn btn-danger">
+			      			<font color="white">Delete </font>
+			      		</a>
+			      </td>
+			    </tr>
+			    <tr>
+			    	@endforeach
+			  	@endif
+			  </tbody>
+			</table> 
+		</div>
+	</div>
+@include('inc.footer')
