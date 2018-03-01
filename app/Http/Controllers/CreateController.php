@@ -11,6 +11,7 @@ class CreateController extends Controller
     	$articles = Article::all();
     	return view('welcome', ['articles'=>$articles]);
     }
+
     public function add(Request $request){
     	$this->validate($request,[
     		'title'=>'required',

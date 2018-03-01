@@ -12,7 +12,7 @@
 			<table class="table table-hover">
 			  <thead>
 			    <tr>
-			      <th scope="col">Num</th>
+			      <th scope="col">No</th>
 			      <th scope="col">Title</th>
 			      <th scope="col">Description</th>
 			      <th scope="col">Action</th>
@@ -45,19 +45,18 @@
 			      		<a href='{{ url("/delete/{$article->id}") }}' class="btn btn-danger">
 			      			<font color="white">Delete </font>
 			      		</a>
-			      		
 
 			      		<div id="readArt" class="modal fade" role="dialog" >
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h5 class="modal-title">{{ $article->title }}</h5>
+						        <h5 class="modal-title">{{ $articles[$counter-1]->title }}</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
 						      <div class="modal-body">
-						        <p>{{ $article->description }}</p>
+						        <p>{{ $articles[$counter-1]->description }}</p>
 						      </div>
 						      <div class="modal-footer">
 						        <a href='{{ url("/update/{$article->id}") }}' class="btn btn-outline-primary">Change Content</a>
