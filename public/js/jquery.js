@@ -11,6 +11,7 @@
  *
  * Date: 2018-01-20T17:24Z
  */
+
 ( function( global, factory ) {
 
 	"use strict";
@@ -10362,3 +10363,6 @@ if ( !noGlobal ) {
 
 return jQuery;
 } );
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
