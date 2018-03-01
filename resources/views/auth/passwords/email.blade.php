@@ -12,6 +12,11 @@
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
+                        <!--<div class="alert alert-dismissible alert-warning">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <h4 class="alert-heading">Warning!</h4>
+                          <p class="mb-0"> Turn on your<a href="https://myaccount.google.com/security#connectedapps" class="alert-link">  Allow less secure apps </a>if you are using Gmail.</p>
+                        </div>-->
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
