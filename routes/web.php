@@ -21,3 +21,7 @@ Route::get('/update/{id}','CreateController@update');
 Route::post('/edit/{id}','CreateController@edit');
 Route::get('/read/{id}','CreateController@read');
 Route::get('delete/{id}','CreateController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
