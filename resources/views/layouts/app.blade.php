@@ -6,6 +6,7 @@
      <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}">
      <script type="text/javascript" src="{{ url('js/jquery-3.3.1.js') }}"></script>
      <script type="text/javascript" src="{{ url('js/bootstrap.js') }}"></script>
+     <link rel="shortcut icon" href="http://himalkom.cs.ipb.ac.id/wp-content/uploads/2014/09/aaas-300x300.png">
 </head>
 <body>
     <div id="app">
