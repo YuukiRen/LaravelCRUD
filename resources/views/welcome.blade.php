@@ -36,7 +36,7 @@
 			      		<a href='{{ url("/read/{$article->id}") }}' class="btn btn-info" >
 			      			<font color="white">Read</font>
 			      		</a>
-			      		<a class="btn btn-secondary" data-toggle="modal" data-target="#readArt">
+			      		<a class="btn btn-secondary" data-toggle="modal" data-target="#modal-id{{ $article->id }}">
 			      			<font color="white">Read v2</font>
 			      		</a>
 			      		<a href='{{ url("/update/{$article->id}") }}' class="btn btn-success">
@@ -46,17 +46,17 @@
 			      			<font color="white">Delete </font>
 			      		</a>
 
-			      		<div id="readArt" class="modal fade" role="dialog" >
+			      		<div id="modal-id{{ $article->id }}" class="modal fade" role="dialog" >
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h5 class="modal-title">{{ $articles[$counter-1]->title }}</h5>
+						        <h5 class="modal-title">{{ $article->title }}</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
 						      <div class="modal-body">
-						        <p>{{ $articles[$counter-1]->description }}</p>
+						        <p>{{ $article->description }}</p>
 						      </div>
 						      <div class="modal-footer">
 						        <a href='{{ url("/update/{$article->id}") }}' class="btn btn-outline-primary">Change Content</a>
